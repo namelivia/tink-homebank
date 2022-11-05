@@ -1,0 +1,21 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pytest = "*"
+pytest-cov = "*"
+pudb = "*"
+codecov = "*"
+black = "*"
+pre-commit = "*"
+mock = "*"
+
+[packages]
+tink-http-python = "==0.0.3"
+dataclass_map_and_log = "*"
+pydantic = "==1.8.2"
+
+[requires]
+python_version = "3.8"
