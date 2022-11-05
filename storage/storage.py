@@ -9,12 +9,12 @@ class TokenStorage(Storage):
 
     def retrieve_refresh_token(self) -> str:
         token_file = open("refresh_token", "r")
-        current_refresh_token = token_file.read()
+        current_refresh_token = token_file.read().splitlines()
         token_file.close()
         return current_refresh_token
 
     def retrieve_authorization_code(self) -> str:
         code_file = open("authorization_code", "r")
-        code = code_file.read()
+        code = code_file.read().splitlines()
         code_file.close()
         return code

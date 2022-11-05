@@ -14,7 +14,6 @@ def render_transaction(transaction):
     print(Transactions.calculate_real_amount(transaction.amount.value))
     print("==========================")
 
-
 transactions = Tink(
     client_id=os.environ.get("TINK_CLIENT_ID"),
     client_secret=os.environ.get("TINK_CLIENT_SECRET"),
