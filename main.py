@@ -9,7 +9,7 @@ from ui.ui import get_memo, should_add_to_existing, ask_category
 
 def render_transaction(transaction):
     print("==========================")
-    print(transaction.dates.value)
+    print(transaction.dates.booked)
     print(transaction.descriptions.original)
     print(Transactions.calculate_real_amount(transaction.amount.value))
     print("==========================")
@@ -33,7 +33,7 @@ with open('output.csv', 'w') as f:
             else:
                 memo = get_memo()
         writer.writerow((
-            transaction.dates.value,
+            transaction.dates.booked,
             0,
             transaction.descriptions.original,
             None,
