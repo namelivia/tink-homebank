@@ -5,7 +5,7 @@ database_file = 'categories.db'
 def get_category(description):
     conn = sqlite3.connect(database_file)
     cursor = conn.cursor()
-    cursor.execute(f"SELECT category_id FROM items WHERE name = '{description}'")
+    cursor.execute("SELECT category_id FROM items WHERE name = ?", (description,))
     data = cursor.fetchall()
     cursor.close()
     conn.close()
@@ -26,7 +26,7 @@ def get_all_categories():
 def _get_category_name_by_id(id):
     conn = sqlite3.connect(database_file)
     cursor = conn.cursor()
-    cursor.execute(f"SELECT name FROM categories WHERE id = {id}")
+    cursor.execute("SELECT name FROM categories WHERE id = ?", (id,))
     data = cursor.fetchall()
     cursor.close()
     conn.close()
