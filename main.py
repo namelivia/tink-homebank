@@ -3,7 +3,7 @@ import csv
 from tink_http_python.tink import Tink
 from tink_http_python.transactions import Transactions
 from storage.storage import TokenStorage
-from cat.categories import get_category
+from cat.categories import get_category, insert_item
 from ui.ui import get_memo, should_add_to_existing, ask_category
 
 
@@ -30,6 +30,7 @@ with open('output.csv', 'w') as f:
             render_transaction(transaction)
             if should_add_to_existing():
                 category = ask_category()
+                insert_item(category, transaction.descriptions.original)
             else:
                 memo = get_memo()
         writer.writerow((
