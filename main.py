@@ -2,10 +2,13 @@ import os
 import csv
 from tink_http_python.tink import Tink
 from tink_http_python.transactions import Transactions
+from tink_http_python.exceptions import NoAuthorizationCodeException
 from storage.storage import TokenStorage
 from cat.categories import get_category, insert_item
 from ui.ui import get_memo, should_add_to_existing, ask_category
+from dotenv import load_dotenv
 
+load_dotenv()
 
 def render_transaction(transaction):
     print("==========================")
@@ -14,11 +17,18 @@ def render_transaction(transaction):
     print(Transactions.calculate_real_amount(transaction.amount.value))
     print("==========================")
 
-transactions = Tink(
-    client_id=os.environ.get("TINK_CLIENT_ID"),
-    client_secret=os.environ.get("TINK_CLIENT_SECRET"),
-    storage=TokenStorage()
-).transactions().get()
+try:
+    tink = Tink(
+        client_id=os.environ.get("TINK_CLIENT_ID"),
+        client_secret=os.environ.get("TINK_CLIENT_SECRET"),
+        storage=TokenStorage()
+    )
+    transactions = tink.transactions().get()
+except NoAuthorizationCodeException:
+    print("No authorization code found")
+    link = tink.get_authorization_code_link()
+    print(link)
+    exit()
 
 
 with open('output.csv', 'w') as f:
