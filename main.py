@@ -7,6 +7,7 @@ from storage.storage import TokenStorage
 from cat.categories import get_category, insert_item
 from ui.ui import get_memo, should_add_to_existing, ask_category
 from dotenv import load_dotenv
+from notifications.notifications import Notifications
 
 load_dotenv()
 
@@ -25,9 +26,8 @@ try:
     )
     transactions = tink.transactions().get()
 except NoAuthorizationCodeException:
-    print("No authorization code found")
     link = tink.get_authorization_code_link()
-    print(link)
+    Notifications.send(link)
     exit()
 
 
