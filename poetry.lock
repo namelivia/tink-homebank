@@ -630,6 +630,20 @@ pytest = ">=4.6"
 testing = ["fields", "hunter", "process-tests", "pytest-xdist", "six", "virtualenv"]
 
 [[package]]
+name = "python-dotenv"
+version = "1.0.0"
+description = "Read key-value pairs from a .env file and set them as environment variables"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "python-dotenv-1.0.0.tar.gz", hash = "sha256:a8df96034aae6d2d50a4ebe8216326c61c3eb64836776504fcca410e5937a3ba"},
+    {file = "python_dotenv-1.0.0-py3-none-any.whl", hash = "sha256:f5971a9226b701070a4bf2c38c89e5a3f0d64de8debda981d1db98583009122a"},
+]
+
+[package.extras]
+cli = ["click (>=5.0)"]
+
+[[package]]
 name = "pyyaml"
 version = "6.0.1"
 description = "YAML parser and emitter for Python"
@@ -727,20 +741,20 @@ testing-integration = ["build[virtualenv] (>=1.0.3)", "filelock (>=3.4.0)", "jar
 
 [[package]]
 name = "tink-http-python"
-version = "0.0.8"
+version = "0.0.11"
 description = "Python SDK for accessing the tink API"
 optional = false
-python-versions = ">=3.8, <4"
+python-versions = ">=3.8,<4.0"
 files = [
-    {file = "tink-http-python-0.0.8.tar.gz", hash = "sha256:9712dbce7caa60759d256cf889058f26ad9558092e8b816af84d1678a88c03e8"},
-    {file = "tink_http_python-0.0.8-py3-none-any.whl", hash = "sha256:d86cf356926541f538a7f42c4bab74c47da3f48ab39a1fbda42940001aabc827"},
+    {file = "tink_http_python-0.0.11-py3-none-any.whl", hash = "sha256:8cc74175a0f6558abfec3e7bbedb11b8da9d013a17afab78c50f398a88b10b0b"},
+    {file = "tink_http_python-0.0.11.tar.gz", hash = "sha256:7b4f4c4c73b366346f12f106e86555d1370caf00f0e30953e20d1fe7b2a9f8af"},
 ]
 
 [package.dependencies]
 dataclass-map-and-log = "0.1.2"
-pyhumps = "*"
-requests = "*"
-tink-python-api-types = "*"
+pyhumps = ">=3.8.0,<4.0.0"
+requests = ">=2.31.0,<3.0.0"
+tink-python-api-types = "0.0.2"
 
 [[package]]
 name = "tink-python-api-types"
@@ -887,4 +901,4 @@ test = ["covdefaults (>=2.3)", "coverage (>=7.2.7)", "coverage-enable-subprocess
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "731f4a6d9e4ede386ec80e973cfa328b73f1a1b54457de8e72e49d455ca94498"
+content-hash = "6ae0dd9e9f1c23ee068e58b8c4bee616796aabc33e13916c763537882e3f9b00"
