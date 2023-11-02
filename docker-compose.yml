@@ -16,6 +16,5 @@ services:
     command: [
         "poetry",
         "run",
-        "python",
-        "main.py",
+        "pytest"
     ]
