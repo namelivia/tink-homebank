@@ -22,6 +22,7 @@ try:
     tink = Tink(
         client_id=os.environ.get("TINK_CLIENT_ID"),
         client_secret=os.environ.get("TINK_CLIENT_SECRET"),
+        callback_uri=os.environ.get("TINK_CALLBACK_URI"),
         storage=TokenStorage()
     )
     transactions = tink.transactions().get()
