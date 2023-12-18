@@ -1,7 +1,5 @@
 # tink-homebank
 
-Pull transactions from Tink and export them in a CSV for Homebank.
+This project is no longer mantained. 
+This project is now merged into: [tink-firefly-endpoint](https://github.com/namelivia/tink-firefly-endpoint)
 
-## Instructions
-Copy `.env.example` to `.env` and replace the placeholders with your tink credentials
-and execute `./run`
